@@ -1,6 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add @types/react-router-dom
-  yarn add @types/react-router-dom
+  /usr/local/bin/node /usr/local/bin/yarn add boardgame.io
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -23,10 +22,14 @@ npm manifest:
   		"@testing-library/jest-dom": "^4.2.4",
   		"@testing-library/react": "^9.3.2",
   		"@testing-library/user-event": "^7.1.2",
+  		"@types/classnames": "^2.2.9",
   		"@types/jest": "^24.0.0",
+  		"@types/jwt-decode": "^2.2.1",
   		"@types/node": "^12.0.0",
   		"@types/react": "^16.9.0",
   		"@types/react-dom": "^16.9.0",
+  		"@types/react-redux": "^7.1.6",
+  		"@types/react-router-dom": "^5.1.3",
   		"axios": "^0.19.1",
   		"bcryptjs": "^2.4.3",
   		"body-parser": "^1.19.0",
@@ -1319,6 +1322,10 @@ Lockfile:
     dependencies:
       "@babel/types" "^7.3.0"
   
+  "@types/classnames@^2.2.9":
+    version "2.2.9"
+    resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.9.tgz#d868b6febb02666330410fe7f58f3c4b8258be7b"
+  
   "@types/common-tags@^1.4.0":
     version "1.8.0"
     resolved "https://registry.yarnpkg.com/@types/common-tags/-/common-tags-1.8.0.tgz#79d55e748d730b997be5b7fce4b74488d8b26a6b"
@@ -1349,6 +1356,17 @@ Lockfile:
       "@types/minimatch" "*"
       "@types/node" "*"
   
+  "@types/history@*":
+    version "4.7.4"
+    resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.4.tgz#06cbceb0ace6a342a9aafcb655a688cf38f6150d"
+  
+  "@types/hoist-non-react-statics@^3.3.0":
+    version "3.3.1"
+    resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
+    dependencies:
+      "@types/react" "*"
+      hoist-non-react-statics "^3.3.0"
+  
   "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
     version "2.0.1"
     resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
@@ -1375,6 +1393,10 @@ Lockfile:
   "@types/json-schema@^7.0.3":
     version "7.0.3"
     resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.3.tgz#bdfd69d61e464dcc81b25159c270d75a73c1a636"
+  
+  "@types/jwt-decode@^2.2.1":
+    version "2.2.1"
+    resolved "https://registry.yarnpkg.com/@types/jwt-decode/-/jwt-decode-2.2.1.tgz#afdf5c527fcfccbd4009b5fd02d1e18241f2d2f2"
   
   "@types/minimatch@*":
     version "3.0.3"
@@ -1408,6 +1430,30 @@ Lockfile:
     version "16.9.4"
     resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.4.tgz#0b58df09a60961dcb77f62d4f1832427513420df"
     dependencies:
+      "@types/react" "*"
+  
+  "@types/react-redux@^7.1.6":
+    version "7.1.6"
+    resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.6.tgz#9a2097d1c74cfd7b4ec3d1c4e30fe806c2058da2"
+    dependencies:
+      "@types/hoist-non-react-statics" "^3.3.0"
+      "@types/react" "*"
+      hoist-non-react-statics "^3.3.0"
+      redux "^4.0.0"
+  
+  "@types/react-router-dom@^5.1.3":
+    version "5.1.3"
+    resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.1.3.tgz#b5d28e7850bd274d944c0fbbe5d57e6b30d71196"
+    dependencies:
+      "@types/history" "*"
+      "@types/react" "*"
+      "@types/react-router" "*"
+  
+  "@types/react-router@*":
+    version "5.1.4"
+    resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-5.1.4.tgz#7d70bd905543cb6bcbdcc6bd98902332054f31a6"
+    dependencies:
+      "@types/history" "*"
       "@types/react" "*"
   
   "@types/react@*", "@types/react@^16.9.0":
@@ -8383,7 +8429,7 @@ Lockfile:
     version "2.3.0"
     resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
   
-  redux@^4.0.5:
+  redux@^4.0.0, redux@^4.0.5:
     version "4.0.5"
     resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
     dependencies:
@@ -10433,24 +10479,12 @@ Lockfile:
       yargs-parser "^13.1.1"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 128
-  Command: git
-  Arguments: ls-remote --tags --heads ssh://git@github.com/types/react-router-dom.git
-  Directory: /Users/macbookpro/Documents/Projects/my-boardgameio-app
-  Output:
-  Host key verification failed.
-  fatal: Could not read from remote repository.
-  
-  Please make sure you have the correct access rights
-  and the repository exists.
-      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
-      at emitTwo (events.js:126:13)
-      at ChildProcess.emit (events.js:214:7)
-      at maybeClose (internal/child_process.js:925:16)
-      at Socket.stream.socket.on (internal/child_process.js:346:11)
-      at emitOne (events.js:116:13)
-      at Socket.emit (events.js:211:7)
-      at Pipe._handle.close [as _onclose] (net.js:567:12)
+  Error: Found incompatible module
+      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at checkOne (/usr/local/lib/node_modules/yarn/lib/cli.js:62444:11)
+      at Object.check (/usr/local/lib/node_modules/yarn/lib/cli.js:62463:5)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:22803:73
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
+      at <anonymous>

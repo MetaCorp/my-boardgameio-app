@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logoutUser } from '../../actions/authActions'
+
 class Dashboard extends Component {
 	onLogoutClick = (e: any) => {
 		e.preventDefault()
@@ -23,6 +25,20 @@ class Dashboard extends Component {
 								app 👏
 							</p>
 						</h4>
+
+						<div>
+							<Link
+								to="/tictactoe"
+								style={{
+									width: '140px',
+									borderRadius: '3px',
+									letterSpacing: '1.5px'
+								}}
+								className="btn btn-large waves-effect waves-light hoverable white black-text">
+								TicTacToe
+							</Link>
+						</div>
+
 						<button
 							style={{
 								width: '150px',

@@ -50,7 +50,7 @@ class App extends Component {
 						<Route exact path="/login" component={Login} />
 						<Switch>
 							<PrivateRoute exact path="/dashboard" component={Dashboard} />
-							<PrivateRoute exact path="/tictactoe" component={TicTacToe} />
+							<PrivateRoute exact path="/tic-tac-toe" component={TicTacToe} />
 						</Switch>
 					</div>
 				</Router>

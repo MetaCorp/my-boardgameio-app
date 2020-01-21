@@ -1,8 +1,3 @@
-// @ts-ignore
-import { Client } from 'boardgame.io/react'
-
-import board from './board'
-
 // Return true if `cells` is in a winning configuration.
 function IsVictory(cells) {
 	return false
@@ -10,10 +5,11 @@ function IsVictory(cells) {
 
 // Return true if all `cells` are occupied.
 function IsDraw(cells) {
-	return cells.filter((c) => c === null).length == 0
+	return cells.filter((c) => c === null).length === 0
 }
 
 const TicTacToe = {
+	name: 'tic-tac-toe',
 	setup: () => ({ cells: Array(9).fill(null) }),
 
 	moves: {
@@ -34,6 +30,4 @@ const TicTacToe = {
 	}
 }
 
-const App = Client({ game: TicTacToe, board })
-
-export default App
+export default TicTacToe

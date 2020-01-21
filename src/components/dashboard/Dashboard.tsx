@@ -28,7 +28,7 @@ class Dashboard extends Component {
 
 						<div>
 							<Link
-								to="/tictactoe"
+								to="/tic-tac-toe"
 								style={{
 									width: '140px',
 									borderRadius: '3px',

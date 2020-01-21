@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { logoutUser } from '../../../actions/authActions'
 
-import TicTacToe from './game.js'
+import TicTacToeClient from './tictactoe'
 
 class Dashboard extends Component {
 	onLogoutClick = (e: any) => {
@@ -14,7 +14,7 @@ class Dashboard extends Component {
 
 	render() {
 		// @ts-ignore
-		const { user } = this.props.auth
+		// const { user } = this.props.auth
 		return (
 			<div style={{ height: '75vh' }} className="container valign-wrapper">
 				<div className="row">
@@ -23,7 +23,7 @@ class Dashboard extends Component {
 							<b>TicTacToe</b>
 						</h4>
 
-						<TicTacToe />
+						<TicTacToeClient playerID="0" />
 					</div>
 				</div>
 			</div>

@@ -20,6 +20,7 @@
 		"body-parser": "^1.19.0",
 		"classnames": "^2.2.6",
 		"concurrently": "^5.0.2",
+		"esm": "^3.2.25",
 		"express": "^4.17.1",
 		"is-empty": "^1.2.0",
 		"jsonwebtoken": "^8.5.1",
@@ -43,22 +44,15 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"server": "node-env-run server --exec nodemon | pino-colada",
-		"dev": "run-p server start"
+		"boardgameio-server": "node -r esm boardgameio-server/index.js",
+		"dev": "run-p server boardgameio-server start"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
+		"production": [ ">0.2%", "not dead", "not op_mini all" ],
+		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
 	},
 	"devDependencies": {
 		"express-pino-logger": "^4.0.0",

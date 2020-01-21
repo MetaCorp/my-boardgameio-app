@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { loginUser } from '../../actions/authActions'
+import classnames from 'classnames'
 
 type LoginState = {
 	email: string
@@ -16,6 +20,28 @@ class Login extends Component<{}, LoginState> {
 			errors: {}
 		}
 	}
+
+	componentDidMount() {
+		// If logged in and user navigates to Register page, should redirect them to dashboard
+		// @ts-ignore
+		if (this.props.auth.isAuthenticated) {
+			// @ts-ignore
+			this.props.history.push('/dashboard')
+		}
+	}
+
+	componentWillReceiveProps(nextProps: any) {
+		if (nextProps.auth.isAuthenticated) {
+			// @ts-ignore
+			this.props.history.push('/dashboard') // push user to dashboard when they login
+		}
+		if (nextProps.errors) {
+			this.setState({
+				errors: nextProps.errors
+			})
+		}
+	}
+
 	onChange = (e: any) => {
 		// @ts-ignore
 		this.setState({ [e.target.id]: e.target.value })
@@ -27,9 +53,12 @@ class Login extends Component<{}, LoginState> {
 			password: this.state.password
 		}
 		console.log(userData)
+		// @ts-ignore
+		this.props.loginUser(userData)
 	}
 	render() {
 		const { errors } = this.state
+		console.log('errors: ', errors)
 		return (
 			<div className="container">
 				<div style={{ marginTop: '4rem' }} className="row">
@@ -50,23 +79,33 @@ class Login extends Component<{}, LoginState> {
 								<input
 									onChange={this.onChange}
 									value={this.state.email}
-									// @ts-ignore
-									error={errors.email}
 									id="email"
 									type="email"
+									className={classnames('', {
+										invalid: errors.email || errors.emailnotfound
+									})}
 								/>
 								<label htmlFor="email">Email</label>
+								<span className="red-text">
+									{errors.email}
+									{errors.emailnotfound}
+								</span>
 							</div>
 							<div className="input-field col s12">
 								<input
 									onChange={this.onChange}
 									value={this.state.password}
-									// @ts-ignore
-									error={errors.password}
 									id="password"
 									type="password"
+									className={classnames('', {
+										invalid: errors.password || errors.passwordincorrect
+									})}
 								/>
 								<label htmlFor="password">Password</label>
+								<span className="red-text">
+									{errors.password}
+									{errors.passwordincorrect}
+								</span>
 							</div>
 							<div className="col s12" style={{ paddingLeft: '11.250px' }}>
 								<button
@@ -88,4 +127,17 @@ class Login extends Component<{}, LoginState> {
 		)
 	}
 }
-export default Login
+
+// @ts-ignore
+Login.propTypes = {
+	loginUser: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired,
+	errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state: any) => ({
+	auth: state.auth,
+	errors: state.errors
+})
+
+export default connect(mapStateToProps, { loginUser })(Login)
